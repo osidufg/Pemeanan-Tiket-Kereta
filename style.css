@@ -1,0 +1,440 @@
+/* masukin monsterrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --blueBg: #1C52A3;
+    --blueBorder: #266cd4;
+    --blueHover: #266cd4;
+    --yellowBtn: #FAE69E;
+    --redBtn: #ffa6a6;
+    --greenBtn: #7BED80;
+}
+
+h1{
+    font-family: "Montserrat", sans-serif;
+    margin-top: 20px ;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 28px;
+    text-align: center;
+    position: relative;
+    color: whitesmoke;
+}
+
+h2{
+    font-family: "Montserrat", sans-serif;
+    margin-top: 20px ;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    color: whitesmoke;
+    background-color: var(--blueBg);
+    padding: 15px 0;
+    /* border: 6px solid #205cb6; */
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
+    color: whitesmoke;
+    margin: 15px 20px;
+}
+
+nav{
+    width: 100%;
+    height: 70px;
+    background-color: var(--blueBg);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
+}
+
+ul {
+    
+    /* padding-left: 20px; */
+}
+
+ul li {
+    
+    list-style: none;
+    display: inline-block;
+    float: left;
+    line-height: 70px;
+}
+
+ul li a{
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    text-decoration: none;
+    padding: 0 20px;
+    color: white;
+}
+
+ul li a:hover{
+    transition: 0.5s ease-out;
+    background: var(--blueHover);
+}
+
+ul li a b{
+    font-size: 24px;
+}
+
+ol li{
+    list-style: none;
+    display: inline-block;
+    float: right;
+    line-height: 69px;
+    /* selamat malam untuk kalian penyandang ocd */
+}
+ol li a{
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    text-decoration: none;
+    padding: 0 20px;
+    color: white;
+}
+
+ol li a:hover{
+    transition: 0.5s ease-out;
+    background: var(--blueHover);
+}
+
+body{
+    /* background: #1C52A3; */
+}
+
+.daftarPesanan{
+    margin: 15px 20px;
+    padding: 15px 20px;
+    height: 10%;
+    background-color: var(--blueBg);
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    /* border: 6px solid #205cb6; */
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
+    color: whitesmoke;
+    display: grid;
+    grid-template-areas: 
+    "block1 block2 block3"
+    "block4 block4 block4";
+}
+.block1{
+    grid-area: block1;
+    width: 30vw;
+    /* border: 2px solid black; */
+}
+.block2{
+    grid-area: block2;
+    width: 30vw;
+    /* border: 2px solid black; */
+}
+.block3{
+    grid-area: block3;
+    display: grid;
+    font-size: 16px;
+    width: 30vw;
+    /* border: 2px solid black; */
+}
+.block4{
+    grid-area: block4;
+    font-size: 12px;
+    /* border: 2px solid black; */
+}
+.block3 a{
+    float: right;
+    background-color: var(--yellowBtn);
+    border-radius: 4px;
+    font-size: 16px;
+    width: 10em;
+    height: 23px;
+    padding-top: 3px;
+    text-align: center;
+}
+.block3 a:link, .block3 a:visited{
+    color: var(--blueBg);
+    text-decoration: none;
+}
+.keretaPesanan{
+    font-size: 24px;
+}
+.jenisKereta{
+    font-size: 14px;
+}
+.jadwalPesanan{
+    font-size: 20px;
+}
+.waktuPesanan{
+    font-size: 14px;
+}
+.hargaPesanan{
+    color: var(--yellowBtn);
+}
+
+.noresult{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: var(--blueBg);
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    /* border: 6px solid #205cb6; */
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
+    color: whitesmoke;
+    text-align: center;
+}
+
+.searchTiket{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.searchTiket input{
+    font-family: "Montserrat", sans-serif;
+    display: inline-block;
+    height: 30px;
+}
+.formInput{
+    width: 360px;
+    border: 2px solid var(--blueBg);
+    border-radius: 4px;
+    /* background-color: #225fbb; */
+    padding: 0 5px;
+    /* box-shadow: 0px 2px 8px rgba(0, 0, 0, 60); */
+    /* color: whitesmoke; */
+    margin-bottom: 15px;
+}
+
+.formInput::placeholder{
+    /* color: whitesmoke; */
+}
+
+#formButton{
+    width: 45px;
+    background-color: var(--yellowBtn);
+    color: var(--blueBg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* border: 1px solid white; */
+    /* box-shadow: 0px 0px 16px rgba(0, 0, 0, 5); */
+
+}
+
+#tambahTiketForm{
+    display: block;
+    align-items: center;
+    background-color: var(--blueBg);
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    /* border: 6px solid var(--blueBorder); */
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
+    margin: 15px 20px;
+    padding: 20vh 20px;
+    height: fit-content;
+}
+
+.formTambahTiket{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.formTambahTiket input{
+    background-color: transparent;
+    color: white;
+    display: inline-block;
+    margin: 10px auto;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.formTambahTiket a{
+    background-color: transparent;
+    color: var(--yellowBtn);
+    display: inline-block;
+    margin: 10px -19px;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.formTambahTiket input::placeholder{
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.buttonTambahTiket{
+    margin: 10px auto;
+    width: 50%;
+}
+.buttonTambahTiket button{
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    display: block;
+    width: 200px;
+    height: 35px;
+    margin: 0px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--yellowBtn);
+    border: 1px solid white;
+    color: var(--blueBg);
+}
+
+#pesanTiketForm{
+    display: block;
+    align-items: center;
+    background-color: var(--blueBg);
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    /* border: 6px solid var(--blueBorder); */
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
+    margin: 15px 20px;
+    padding: 20vh 20px;
+    height: fit-content;
+}
+
+.formPesanTiket{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.formPesanTiket input{
+    background-color: transparent;
+    color: white;
+    display: inline-block;
+    margin: 10px auto;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.formPesanTiket input::placeholder{
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.buttonPesanTiket{
+    margin: 10px auto;
+    width: 50%;
+}
+.buttonPesanTiket button{
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    display: block;
+    width: 200px;
+    height: 35px;
+    margin: 0px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--yellowBtn);
+    border: 1px solid white;
+    color: var(--blueBg);
+}
+
+#confirmDelete{
+    display: block;
+    align-items: center;
+    background-color: var(--blueBg);
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    /* border: 6px solid var(--blueBorder); */
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
+    margin: 15px 20px;
+    padding: 20vh 20px;
+    height: fit-content;
+}
+
+#confirmDelete label{
+    display: block;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.confirmYes{
+    margin: 10px auto;
+    width: 50%;
+}
+.confirmYes button{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    display: block;
+    width: 200px;
+    height: 35px;
+    margin: 0px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--yellowBtn);
+    border: 1px solid white;
+    color: var(--blueBg);
+}
+
+.confirmNo{
+    margin: 10px auto;
+    width: 200px;
+    height: 35px;
+    border: 1px solid white;
+    background-color: var(--redBtn);
+    border-radius: 4px;
+}
+
+.confirmNo a{
+    display: block;
+    padding-top: 7px;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.confirmNo a:link, .confirmNo a:visited{
+    color: var(--blueBg);
+    text-decoration: none;
+}
+/* .confirmNo button{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    display: block;
+    width: 200px;
+    height: 35px;
+    margin: 0px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--redBtn);
+    border: 1px solid white;
+    color: var(--blueBg);
+} */
+
+.invalid-feedback{
+    font-size: 12px;
+    color: var(--redBtn);
+
+}
