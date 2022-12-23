@@ -85,6 +85,14 @@ if (empty($namaKereta) === false){
         if($result = $mysqli->query($sql)){
             if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
+                $nama_kereta = $row["nama_kereta"];
+                $jenis_kereta = $row["jenis_kereta"];
+                $berangkat_lokasi = $row["berangkat_lokasi"];
+                $berangkat_waktu = $row["berangkat_waktu"];
+                $tiba_lokasi = $row["tiba_lokasi"];
+                $tiba_waktu = $row["tiba_waktu"];
+                $harga = $row["harga"];
+                $row["harga"] = number_format($row["harga"], 0, ',', '.');
                 echo "<div class='daftarPesanan'>";
                 echo "<div class='block1'>";
                 echo "<div class='keretaPesanan'>" . $row["nama_kereta"] . "</div>";
@@ -109,14 +117,14 @@ if (empty($namaKereta) === false){
         <form id="tambahTiketForm" action="" method="post">
         <div class="formTambahTiket">
             <!-- <label for="username">username</label> -->
-            <input name="namaKereta" class = "namaKereta" type="text" placeholder="Nama Kereta..." required/>
-            <input name="jenisKereta" class = "namaKereta" type="text" placeholder="Jenis Kereta..." required/>
+            <input name="namaKereta" class = "namaKereta" type="text" placeholder="Nama Kereta..." value="<?php echo $nama_kereta; ?>" required/>
+            <input name="jenisKereta" class = "namaKereta" type="text" placeholder="Jenis Kereta..." value="<?php echo $jenis_kereta; ?>" required/>
         </div>
         <div class="formTambahTiket">
             <!-- <label for="password" id="passLabel">password</label> -->
-            <input name="berangkatKereta" id = "berangkatKereta" type="text" placeholder="Stasiun Berangkat..." required/>
+            <input name="berangkatKereta" id = "berangkatKereta" type="text" placeholder="Stasiun Berangkat..." value="<?php echo $berangkat_lokasi; ?>" required/>
             <a>>>></a>
-            <input name="tibaKereta" id = "tibaKereta" type="text" placeholder="Stasiun Tiba..." required/>
+            <input name="tibaKereta" id = "tibaKereta" type="text" placeholder="Stasiun Tiba..." value="<?php echo $tiba_lokasi; ?>" required/>
         </div>
         <div class="formTambahTiket">
             <input name="berangkatWaktu" id = "berangkatWaktu" type="datetime-local" placeholder="Waktu Berangkat" required/>
@@ -124,7 +132,7 @@ if (empty($namaKereta) === false){
             <input name="tibaWaktu" id = "tibakatWaktu" type="datetime-local" placeholder="Waktu Tiba" required/>
         </div>
         <div class="formTambahTiket">
-            <input name="hargaKereta" id="hargaKereta" type="text" placeholder="Harga Tiket" pattern="[0-9]*" required/>
+            <input name="hargaKereta" id="hargaKereta" type="text" placeholder="Harga Tiket" pattern="[0-9]*" value="<?php echo $harga; ?>" required/>
         </div>
         <div class="buttonTambahTiket">
             <button type="submit">Edit Tiket</button>
