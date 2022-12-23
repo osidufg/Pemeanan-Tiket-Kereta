@@ -92,6 +92,10 @@ if (empty($namaKereta) === false){
                 $tiba_lokasi = $row["tiba_lokasi"];
                 $tiba_waktu = $row["tiba_waktu"];
                 $harga = $row["harga"];
+                // change row berangkat_waktu and tiba_waktu to date format
+                $row["berangkat_waktu"] = date("d M Y H:i", strtotime($row["berangkat_waktu"]));
+                $row["tiba_waktu"] = date("d M Y H:i", strtotime($row["tiba_waktu"]));
+                // change row harga to currency format
                 $row["harga"] = number_format($row["harga"], 0, ',', '.');
                 echo "<div class='daftarPesanan'>";
                 echo "<div class='block1'>";
@@ -127,9 +131,9 @@ if (empty($namaKereta) === false){
             <input name="tibaKereta" id = "tibaKereta" type="text" placeholder="Stasiun Tiba..." value="<?php echo $tiba_lokasi; ?>" required/>
         </div>
         <div class="formTambahTiket">
-            <input name="berangkatWaktu" id = "berangkatWaktu" type="datetime-local" placeholder="Waktu Berangkat" required/>
+            <input name="berangkatWaktu" id = "berangkatWaktu" type="datetime-local" placeholder="Waktu Berangkat" value="<?php echo $berangkat_waktu; ?>" required/>
             <a>>>></a>
-            <input name="tibaWaktu" id = "tibakatWaktu" type="datetime-local" placeholder="Waktu Tiba" required/>
+            <input name="tibaWaktu" id = "tibakatWaktu" type="datetime-local" placeholder="Waktu Tiba" value="<?php echo $tiba_waktu; ?>" required/>
         </div>
         <div class="formTambahTiket">
             <input name="hargaKereta" id="hargaKereta" type="text" placeholder="Harga Tiket" pattern="[0-9]*" value="<?php echo $harga; ?>" required/>

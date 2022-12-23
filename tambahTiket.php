@@ -7,26 +7,33 @@ if($_SESSION["role"] != "admin"){
     header("location: home.php");
 }
 $namaKereta = $jenisKereta = $berangkatKereta = $berangkatWaktu = $tibaKereta = $tibaWaktu = $hargaKereta = "";
-$berangkatWaktuInput = $tibaWaktuInput = "";
-$berangkatWaktuUnix = $tibaWaktuUnix = "";
+// $berangkatWaktuInput = $tibaWaktuInput = "";
+// $berangkatWaktuUnix = $tibaWaktuUnix = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $namaKereta = $_POST["namaKereta"];
     $jenisKereta = $_POST["jenisKereta"];
     $berangkatKereta = $_POST["berangkatKereta"];
     $tibaKereta = $_POST["tibaKereta"];
-    $berangkatWaktuInput = $_POST["berangkatWaktu"];
-    $tibaWaktuInput = $_POST["tibaWaktu"];
+    // $berangkatWaktuInput = $_POST["berangkatWaktu"];
+    // $tibaWaktuInput = $_POST["tibaWaktu"];
+    $berangkatWaktu = $_POST["berangkatWaktu"];
+    $tibaWaktu = $_POST["tibaWaktu"];
     $hargaKereta = $_POST["hargaKereta"];
 }
 
 //logika jelek untuk mengubah format waktu
 //datetime-local jadi timestamp unix
-$berangkatWaktuUnix = strtotime($berangkatWaktuInput);
-$tibaWaktuUnix = strtotime($tibaWaktuInput);
+// $berangkatWaktuUnix = strtotime($berangkatWaktuInput);
+// $tibaWaktuUnix = strtotime($tibaWaktuInput);
+
 //timestamp unix jadi readable date
-$berangkatWaktu = date("l, d M Y H:i", $berangkatWaktuUnix);
-$tibaWaktu = date("l, d M Y H:i", $tibaWaktuUnix);  
+// $berangkatWaktu = date("l, d M Y H:i", $berangkatWaktuUnix);
+// $tibaWaktu = date("l, d M Y H:i", $tibaWaktuUnix);
+
+//gausah jadi readable date anjir tih
+// $berangkatWaktu = $berangkatWaktuUnix;
+// $tibaWaktu = $tibaWaktuUnix;
 
 $sql = "INSERT INTO tb_tiket 
         (nama_kereta, jenis_kereta, berangkat_lokasi, berangkat_waktu, tiba_lokasi, tiba_waktu, harga, dibuat, status_data) 

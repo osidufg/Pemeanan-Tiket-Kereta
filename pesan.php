@@ -101,6 +101,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($result = $mysqli->query($sql)){
             if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
+                // change row berangkat_waktu and tiba_waktu to date format
+                $row["berangkat_waktu"] = date("d M Y H:i", strtotime($row["berangkat_waktu"]));
+                $row["tiba_waktu"] = date("d M Y H:i", strtotime($row["tiba_waktu"]));
+                // change row harga to currency format
+                $row["harga"] = number_format($row["harga"], 0, ',', '.');
                 echo "<div class='daftarPesanan'>";
                 echo "<div class='block1'>";
                 echo "<div class='keretaPesanan'>" . $row["nama_kereta"] . "</div>";
@@ -131,7 +136,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <!-- <span class="invalid-feedback"><?php echo $nikPesan_err; ?></span> -->
         </div>
         <div class="formPesanTiket">
-            <input name="jumlahPenumpang" id="jumlahPenumpang" type="number" min="0" placeholder="Jumlah Penumpang" required/>
+            <input name="jumlahPenumpang" id="jumlahPenumpang" type="number" min="1" placeholder="Jumlah Penumpang" required/>
             <!-- <span class="invalid-feedback"><?php echo $jumlahPenumpang_err; ?></span> -->
         </div>
         <div class="buttonPesanTiket">

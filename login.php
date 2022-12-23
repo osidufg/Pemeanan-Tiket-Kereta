@@ -13,7 +13,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$username = $password = "";
+$username = $password = $password_hash = "";
 $username_err = $password_err = $login_err = "";
  
 // Processing form data when form is submitted
@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if($stmt->num_rows == 1){                    
                     $stmt->bind_result($id, $username, $user_password, $user_role);
                     if($stmt->fetch()){
-                        if($user_password == $password){
+                        if(password_verify($password, $user_password)){
                             // password benar, start session
                             session_start();
                             
@@ -73,6 +73,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // password error
                             $login_err = "Invalid username or password.";
                         }
+                        // if($user_password == $password){
+                        //     // password benar, start session
+                        //     session_start();
+                            
+                        //     // store data login
+                        //     $_SESSION["loggedin"] = true;
+                        //     $_SESSION["id"] = $id;
+                        //     $_SESSION["username"] = $username;                            
+                        //     $_SESSION["role"] = $user_role;
+
+                        //     // Redirect ke homeAdmin jika admin, home biasa kalo user
+                        //     if($_SESSION["role"] === "admin"){
+                        //         header("location: homeAdmin.php");
+                        //     } else {
+                        //         header("location: home.php");
+                        //     }
+                        // } else{
+                        //     // password error
+                        //     $login_err = "Invalid username or password.";
+                        // }
                     }
                 } else{
                     // username error

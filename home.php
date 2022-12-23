@@ -39,6 +39,12 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false){
           if($result = $mysqli->query($sql)){
               if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
+                  // change row berangkat_waktu and tiba_waktu to date format
+                  $row["berangkat_waktu"] = date("d M Y H:i", strtotime($row["berangkat_waktu"]));
+                  $row["tiba_waktu"] = date("d M Y H:i", strtotime($row["tiba_waktu"]));
+                  // change row harga to currency format
+                  $totalHarga = $row["harga"] * $row["jumlah_penumpang"];
+                  $totalHarga = number_format($totalHarga, 0, ',', '.');
                   echo "<div class='daftarPesanan'>";
                   echo "<div class='block1'>";
                   echo "<div class='keretaPesanan'>" . $row["nama_kereta"] . "</div>";
@@ -49,7 +55,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false){
                   echo "<div class='waktuPesanan'>" . $row["berangkat_waktu"] . " >>> " . $row["tiba_waktu"] . "</div>";
                   echo "</div>";
                   echo "<div class='block3'>";
-                  echo "<div class='hargaPesanan'>" . "Rp " . $row["harga"] . "</div>";
+                  echo "<div class='hargaPesanan'>" . "Rp " . $totalHarga . "</div>";
                   echo "<form action='pesan.php' class='buttonPesananHapus'>
                           <a href='deletePesan.php?pesan=$row[id_pesan]' id='idButtonPesanan' value='Pesan Sekarang'>Hapus Pesanan</a>
                         </form>";

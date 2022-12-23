@@ -3,7 +3,7 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
+$username = $password = $confirm_password = $password_hash = "";
 $username_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
@@ -65,12 +65,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    // Hash the password
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
         
         // Prepare an insert statement
         $sql2 = "INSERT INTO tb_user 
                     (user_username, user_password, user_role, dibuat, status_data) 
                         VALUES 
-                            ('$username', '$password', 'user', now(), 'aktif')";
+                            ('$username', '$password_hash', 'user', now(), 'aktif')";
         if($stmt = $mysqli->query($sql2)){
             echo "<script>
                     alert('Registrasi Berhasil');

@@ -63,6 +63,12 @@ if (empty($confirm) === false){
         if($result = $mysqli->query($sql)){
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
+                  // change row berangkat_waktu and tiba_waktu to date format
+                  $row["berangkat_waktu"] = date("d M Y H:i", strtotime($row["berangkat_waktu"]));
+                  $row["tiba_waktu"] = date("d M Y H:i", strtotime($row["tiba_waktu"]));
+                  // change row harga to currency format
+                  $totalHarga = $row["harga"] * $row["jumlah_penumpang"];
+                  $totalHarga = number_format($totalHarga, 0, ',', '.');
                   echo "<div class='daftarPesanan'>";
                   echo "<div class='block1'>";
                   echo "<div class='keretaPesanan'>" . $row["nama_kereta"] . "</div>";
@@ -73,7 +79,7 @@ if (empty($confirm) === false){
                   echo "<div class='waktuPesanan'>" . $row["berangkat_waktu"] . " >>> " . $row["tiba_waktu"] . "</div>";
                   echo "</div>";
                   echo "<div class='block3'>";
-                  echo "<div class='hargaPesanan'>" . "Rp " . $row["harga"] . "</div>";
+                  echo "<div class='hargaPesanan'>" . "Rp " . $totalHarga . "</div>";
                   echo "</div>";
                   echo "<div class='block4'>";
                   echo "<div class='biodataPesanan'>" . $row["nama_pesan"] . ", " . $row["nik_pesan"] . ", " . $row["jumlah_penumpang"] . " Penumpang, " . "Kode Pesanan: " . $row["kode_pesan"] . "</div>";
