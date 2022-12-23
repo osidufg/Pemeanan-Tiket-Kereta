@@ -2,10 +2,9 @@
 session_start();
 // Include config file
 require_once "config.php";
-// Check if user isn't logged in
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false){
-    header("location: login.php");
-    exit;
+// Check if user is admin
+if($_SESSION["role"] != "admin"){
+    header("location: home.php");
 }
 $pesanID = $confirm = "";  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -89,10 +88,10 @@ if (empty($confirm) === false){
             <label>Yakin Ingin Hapus Tiket Ini?</label>
         <div class="confirmYes">
             <input name="confirmDeleteYes" type="hidden" value="gg gaming"/>
-            <button type="submit" value="Login">Iya. Hapus Tiket Ini</button>
+            <button type="submit" value="Login">Hapus Tiket Ini</button>
         </div>
         <div class="confirmNo">
-            <a href='editTiket.php'>Tidak. Batalkan</button>
+            <a href='editTiket.php'>Batalkan</button>
         </div>
         </form>
 

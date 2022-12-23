@@ -28,33 +28,28 @@ $tibaWaktuUnix = strtotime($tibaWaktuInput);
 $berangkatWaktu = date("l, d M Y H:i", $berangkatWaktuUnix);
 $tibaWaktu = date("l, d M Y H:i", $tibaWaktuUnix);  
 
-$sql = "INSERT INTO tb_tiket 
-        (nama_kereta, jenis_kereta, berangkat_lokasi, berangkat_waktu, tiba_lokasi, tiba_waktu, harga, dibuat, status_data) 
-            VALUES
-            ('$namaKereta',
-            '$jenisKereta',
-            '$berangkatKereta',
-            '$berangkatWaktu',
-            '$tibaKereta',
-            '$tibaWaktu',
-            '$hargaKereta',
-            now(),
-            'aktif');";
+$sql = "UPDATE tb_tiket SET 
+        nama_kereta = '$namaKereta',
+        jenis_kereta = '$jenisKereta',
+        berangkat_lokasi = '$berangkatKereta',
+        berangkat_waktu = '$berangkatWaktu',
+        tiba_lokasi = '$tibaKereta',
+        tiba_waktu = '$tibaWaktu',
+        harga = '$hargaKereta'
+        WHERE id_tiket = '{$_GET['tiket']}'";
 
 if (empty($namaKereta) === false){
     if($result = $mysqli->query($sql)){
         echo "<script>
-                alert('Tiket Berhasil Dimasukkan Kedalam Database');
+                alert('Tiket Berhasil Diupdate');
             </script>";
     } else {
         echo $mysqli->error;
     }
 }
-
 ?>
-
 <html>
-<head>
+    <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>booking kereta</title>
@@ -63,8 +58,7 @@ if (empty($namaKereta) === false){
     </head>
 
     <body>
-        <!--Navigation bar-->
-        <div id="nav-placeholder">
+         <div id="nav-placeholder">
 
         </div>
 
@@ -74,12 +68,44 @@ if (empty($namaKereta) === false){
         });
         </script>
         <!--end of Navigation bar-->
-
-        <h2>(ADMIN) Tambah Daftar Tiket</h2>
+        <h2>(ADMIN) Edit Tiket</h2>
         <?php
-        // insert from form to tb_tiket
-            // $sql = "SELECT * FROM tb_tiket";
-        ?>
+        if(isset($_GET['tiket'])){
+            // echo $_GET['tiket'];
+            // echo "AAAAAAAA BISA SL;FJKSL;ADKFJASL;KJ AAAAAAA";
+            $pesanID = $_GET['tiket'];
+        } else{
+            header("location: editTiket.php");
+        }
+        //get info tiket
+        $sql = "SELECT id_tiket, nama_kereta, jenis_kereta, berangkat_lokasi, berangkat_waktu, tiba_lokasi, tiba_waktu, harga
+                FROM tb_tiket
+                WHERE $pesanID = id_tiket";
+        
+        if($result = $mysqli->query($sql)){
+            if ($result->num_rows > 0) {
+              while($row = $result->fetch_assoc()) {
+                echo "<div class='daftarPesanan'>";
+                echo "<div class='block1'>";
+                echo "<div class='keretaPesanan'>" . $row["nama_kereta"] . "</div>";
+                echo "<div class='jenisKereta'>" . $row["jenis_kereta"] . "</div>";
+                echo "</div>";
+                echo "<div class='block2'>";
+                echo "<div class='jadwalPesanan'>" . $row["berangkat_lokasi"] . " >>> " . $row["tiba_lokasi"]."</div>";
+                echo "<div class='waktuPesanan'>" . $row["berangkat_waktu"] . " >>> " . $row["tiba_waktu"] . "</div>";
+                echo "</div>";
+                echo "<div class='block3'>";
+                echo "<div class='hargaPesanan'>" . "Rp " . $row["harga"] . "</div>";
+                echo "</div>";
+                echo "</div>"; 
+              }
+            } else {
+              echo "<div class='noresult'>" . "Tidak Ada Hasil." . "</div>";
+            }
+        } else{
+            echo $mysqli->error;
+        }
+      ?>
         <form id="tambahTiketForm" action="" method="post">
         <div class="formTambahTiket">
             <!-- <label for="username">username</label> -->
@@ -101,9 +127,8 @@ if (empty($namaKereta) === false){
             <input name="hargaKereta" id="hargaKereta" type="text" placeholder="Harga Tiket" pattern="[0-9]*" required/>
         </div>
         <div class="buttonTambahTiket">
-            <button type="submit">Tambah ke Daftar Tiket</button>
+            <button type="submit">Edit Tiket</button>
         </div>
         </form>
     </body>
-
 </html>

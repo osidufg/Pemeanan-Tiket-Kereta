@@ -3,8 +3,9 @@ session_start();
 $username = $password = "";
 // Include config file
 require_once "config.php";
+// Check if user is admin
 if($_SESSION["role"] != "admin"){
-    header("location: home.php");
+  header("location: home.php");
 }
 ?>
 
@@ -48,9 +49,13 @@ if($_SESSION["role"] != "admin"){
                     echo "<div class='block3'>";
                     echo "<div class='hargaPesanan'>" . "Rp " . $row["harga"] . "</div>";
                     
-                    echo "<form action='pesan.php' class='buttonPesanan'>
-                        <a href='deleteTiket.php?tiket=$row[id_tiket]' id='idButtonPesanan' value='Pesan Sekarang'>Hapus Tiket</a>
+                    echo "<form action='pesan.php' class='buttonPesananEdit'>
+                      <a href='updateTiket.php?tiket=$row[id_tiket]' id='idButtonPesanan' value='Pesan Sekarang'>Edit Tiket</a>
                       </form>";
+                    echo "<form action='pesan.php' class='buttonPesananHapus'>
+                      <a href='deleteTiket.php?tiket=$row[id_tiket]' id='idButtonPesanan' value='Pesan Sekarang'>Hapus Tiket</a>
+                      </form>";
+
                     echo "</div>";
                     echo "</div>";
                 }

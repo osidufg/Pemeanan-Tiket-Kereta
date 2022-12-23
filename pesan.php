@@ -125,9 +125,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form id="pesanTiketForm" action="" method="post">
         <div class="formPesanTiket">
             <!-- <label for="username">username</label> -->
-            <input name="namaPesan" class = "namaPesan" type="text" placeholder="Nama Lengkap" pattern="[a-zA-Z]*" required/>
+            <input name="namaPesan" class = "namaPesan" type="text" placeholder="Nama Lengkap" pattern="[a-z A-Z 0-9]*" required/>
             <!-- <span class="invalid-feedback"><?php echo $namaPesan_err; ?></span> -->
-            <input name="nikPesan" class = "nikPesan" type="text" placeholder="NIK" pattern="[0-9]*" required/>
+            <input name="nikPesan" class = "nikPesan" type="text" placeholder="NIK" pattern="[0-9]*"  required/>
             <!-- <span class="invalid-feedback"><?php echo $nikPesan_err; ?></span> -->
         </div>
         <div class="formPesanTiket">
@@ -136,6 +136,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         <div class="buttonPesanTiket">
             <button type="submit" value="Login">Pesan Tiket</button>
+        </div>
+        <div class="confirmNo">
+            <a href='search.php'>Batalkan</button>
         </div>
         </form>
     </body>

@@ -3,6 +3,7 @@ session_start();
 $username = $password = "";
 // Include config file
 require_once "config.php";
+// Check if user is admin
 if($_SESSION["role"] != "admin"){
   header("location: home.php");
 }

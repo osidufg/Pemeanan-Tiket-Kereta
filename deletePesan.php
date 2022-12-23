@@ -91,10 +91,10 @@ if (empty($confirm) === false){
             <label>Yakin Ingin Hapus Pesanan Ini?</label>
         <div class="confirmYes">
             <input name="confirmDeleteYes" type="hidden" value="gg gaming"/>
-            <button type="submit" value="Login">Iya. Hapus Pesanan Ini</button>
+            <button type="submit" value="Login">Hapus Pesanan Ini</button>
         </div>
         <div class="confirmNo">
-            <a href='home.php'>Tidak. Batalkan</button>
+            <a href='home.php'>Batalkan</button>
         </div>
         </form>
     </body>

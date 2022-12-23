@@ -50,7 +50,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false){
                   echo "</div>";
                   echo "<div class='block3'>";
                   echo "<div class='hargaPesanan'>" . "Rp " . $row["harga"] . "</div>";
-                  echo "<form action='pesan.php' class='buttonPesanan'>
+                  echo "<form action='pesan.php' class='buttonPesananHapus'>
                           <a href='deletePesan.php?pesan=$row[id_pesan]' id='idButtonPesanan' value='Pesan Sekarang'>Hapus Pesanan</a>
                         </form>";
                   echo "</div>";

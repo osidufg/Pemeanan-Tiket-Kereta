@@ -12,8 +12,9 @@
     --blueBorder: #266cd4;
     --blueHover: #266cd4;
     --yellowBtn: #FAE69E;
-    --redBtn: #ffa6a6;
+    --redBtn: #f66161;
     --greenBtn: #7BED80;
+    --whiteBtn: #ffffff;
 }
 
 h1{
@@ -148,6 +149,7 @@ body{
     font-size: 12px;
     /* border: 2px solid black; */
 }
+
 .block3 a{
     float: right;
     background-color: var(--yellowBtn);
@@ -158,10 +160,26 @@ body{
     padding-top: 3px;
     text-align: center;
 }
+
 .block3 a:link, .block3 a:visited{
     color: var(--blueBg);
     text-decoration: none;
 }
+
+.buttonPesananHapus a{
+    background-color: var(--redBtn);
+    color: var(--whiteBtn);
+    text-decoration: none;
+}
+.buttonPesananHapus a:link, .buttonPesananHapus a:visited{
+    background-color: var(--redBtn);
+    color: var(--whiteBtn);
+    text-decoration: none;
+}
+.buttonPesananEdit a{
+    text-decoration: none;
+}
+
 .keretaPesanan{
     font-size: 24px;
 }
@@ -253,6 +271,8 @@ body{
     width: 50%;
 }
 .formTambahTiket input{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
     background-color: transparent;
     color: white;
     display: inline-block;
@@ -260,8 +280,9 @@ body{
     border: 1px solid white;
     border-radius: 4px;
     padding: 2px 4px;
-    font-size: 18px;
     text-align: center;
+    font-weight: 100;
+    min-width: 30%;
 }
 
 .formTambahTiket a{
@@ -273,7 +294,14 @@ body{
     padding: 2px 4px;
     font-size: 18px;
     text-align: center;
+}
 
+.formTambahTiket #berangkatWaktu{
+    font-size: 16px;
+}
+
+.formTambahTiket #tibakatWaktu{
+    font-size: 16px;
 }
 
 .formTambahTiket input::placeholder{
@@ -347,7 +375,7 @@ body{
 }
 .buttonPesanTiket button{
     font-family: "Montserrat", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     display: block;
     width: 200px;
     height: 35px;
@@ -355,7 +383,8 @@ body{
     cursor: pointer;
     border-radius: 5px;
     background-color: var(--yellowBtn);
-    border: 1px solid white;
+    /* border: 1px solid white; */
+    border: none;
     color: var(--blueBg);
 }
 
@@ -393,17 +422,25 @@ body{
     margin: 0px auto;
     cursor: pointer;
     border-radius: 5px;
-    background-color: var(--yellowBtn);
-    border: 1px solid white;
+    /* background-color: var(--yellowBtn); */
+    background-color: var(--redBtn);
+    /* border: 1px solid white; */
+    border: none;
+    box-shadow: none;
     color: var(--blueBg);
+    color: white;
 }
 
 .confirmNo{
     margin: 10px auto;
     width: 200px;
     height: 35px;
-    border: 1px solid white;
-    background-color: var(--redBtn);
+    /* border: 1px solid white; */
+    border: none;
+    box-shadow: none;
+    /* background-color: var(--redBtn); */
+    background-color: var(--whiteBtn);
+    opacity: 0.55;
     border-radius: 4px;
 }
 
@@ -416,7 +453,34 @@ body{
 }
 
 .confirmNo a:link, .confirmNo a:visited{
-    color: var(--blueBg);
+    /* color: var(--blueBg); */
+    color: rgb(18, 18, 18);
+    text-decoration: none;
+}
+
+.confirmCancel{
+    margin: 10px auto;
+    width: 200px;
+    height: 35px;
+    /* border: 1px solid white; */
+    border: none;
+    box-shadow: none;
+    /* background-color: var(--redBtn); */
+    background-color: var(--redBtn);
+    border-radius: 4px;
+}
+
+.confirmCancel a{
+    display: block;
+    padding-top: 7px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.confirmCancel a:link, .confirmCancel a:visited{
+    /* color: var(--blueBg); */
+    color: var(--whiteBtn);
     text-decoration: none;
 }
 /* .confirmNo button{
