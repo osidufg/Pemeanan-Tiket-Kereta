@@ -122,7 +122,13 @@ if (empty($namaKereta) === false){
         <div class="formTambahTiket">
             <!-- <label for="username">username</label> -->
             <input name="namaKereta" class = "namaKereta" type="text" placeholder="Nama Kereta..." value="<?php echo $nama_kereta; ?>" required/>
-            <input name="jenisKereta" class = "namaKereta" type="text" placeholder="Jenis Kereta..." value="<?php echo $jenis_kereta; ?>" required/>
+            <!-- <input name="jenisKereta" class = "namaKereta" type="text" placeholder="Jenis Kereta..." value="<?php echo $jenis_kereta; ?>" required/> -->
+            <select name="jenisKereta" id="jenisKereta">
+                <option hidden selected value="<?php echo $jenis_kereta; ?>"><?php echo $jenis_kereta; ?></option>
+                <option value="Ekonomi">Ekonomi</option>
+                <option value="Bisnis">Bisnis</option>
+                <option value="Eksekutif">Eksekutif</option>
+            </select>
         </div>
         <div class="formTambahTiket">
             <!-- <label for="password" id="passLabel">password</label> -->

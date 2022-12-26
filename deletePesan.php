@@ -82,7 +82,8 @@ if (empty($confirm) === false){
                   echo "<div class='hargaPesanan'>" . "Rp " . $totalHarga . "</div>";
                   echo "</div>";
                   echo "<div class='block4'>";
-                  echo "<div class='biodataPesanan'>" . $row["nama_pesan"] . ", " . $row["nik_pesan"] . ", " . $row["jumlah_penumpang"] . " Penumpang, " . "Kode Pesanan: " . $row["kode_pesan"] . "</div>";
+                  // echo "<div class='biodataPesanan'>" . $row["nama_pesan"] . ", " . $row["nik_pesan"] . ", " . $row["duduk_pesan"] . ", " . "Kode Pesanan: " . $row["kode_pesan"] . "</div>";
+                  echo "<div class='biodataPesanan'>" . $row["nama_pesan"] . " (" . $row["nik_pesan"] . ") " . $row["duduk_pesan"] . "</div>";
                   echo "</div>";
                   echo "</div>";
                 }

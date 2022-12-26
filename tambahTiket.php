@@ -91,7 +91,13 @@ if (empty($namaKereta) === false){
         <div class="formTambahTiket">
             <!-- <label for="username">username</label> -->
             <input name="namaKereta" class = "namaKereta" type="text" placeholder="Nama Kereta..." required/>
-            <input name="jenisKereta" class = "namaKereta" type="text" placeholder="Jenis Kereta..." required/>
+            <!-- <input name="jenisKereta" class = "namaKereta" type="text" placeholder="Jenis Kereta..." required/> -->
+            <select name="jenisKereta" id="jenisKereta">
+                <option hidden selected>Jenis Kereta</option>
+                <option value="Ekonomi">Ekonomi</option>
+                <option value="Bisnis">Bisnis</option>
+                <option value="Eksekutif">Eksekutif</option>
+            </select>
         </div>
         <div class="formTambahTiket">
             <!-- <label for="password" id="passLabel">password</label> -->

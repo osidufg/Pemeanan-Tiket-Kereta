@@ -53,10 +53,10 @@ nav{
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
 }
 
-ul {
+/* ul {
     
-    /* padding-left: 20px; */
-}
+    padding-left: 20px;
+} */
 
 ul li {
     
@@ -107,9 +107,9 @@ ol li a:hover{
     background: var(--blueHover);
 }
 
-body{
-    /* background: #1C52A3; */
-}
+/* body{
+    background: #1C52A3;
+} */
 
 .daftarPesanan{
     margin: 15px 20px;
@@ -234,9 +234,9 @@ body{
     margin-bottom: 15px;
 }
 
-.formInput::placeholder{
-    /* color: whitesmoke; */
-}
+/* .formInput::placeholder{
+    color: whitesmoke;
+} */
 
 #formButton{
     width: 45px;
@@ -285,6 +285,28 @@ body{
     min-width: 30%;
 }
 
+.formTambahTiket #jenisKereta{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    background-color: transparent;
+    color: white;
+    display: inline-block;
+    margin: 10px auto;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 2px 4px;
+    text-align: center;
+    font-weight: 100;
+    min-width: 30%;
+}
+
+.formTambahTiket #jenisKereta option{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    color: black;
+}
+
 .formTambahTiket a{
     background-color: transparent;
     color: var(--yellowBtn);
@@ -330,8 +352,12 @@ body{
 }
 
 #pesanTiketForm{
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
     align-items: center;
+    flex-direction: column;
     background-color: var(--blueBg);
     font-family: "Montserrat", sans-serif;
     font-size: 24px;
@@ -340,26 +366,69 @@ body{
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
     margin: 15px 20px;
     padding: 20vh 20px;
+    padding-top: 10vh;
     height: fit-content;
+    color: white;
 }
 
 .formPesanTiket{
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    margin: 10px;
     width: 50%;
+    background-color: transparent;
 }
+
+.lmao{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    width: 30%;
+}
+
 
 .formPesanTiket input{
     background-color: transparent;
     color: white;
-    display: inline-block;
-    margin: 10px auto;
+    margin: 10px 0px;
     border: 1px solid white;
     border-radius: 4px;
     padding: 2px 4px;
     font-size: 18px;
     text-align: center;
+    width: 30%;
+}
+
+.formPesanTiket select{
+    background-color: transparent;
+    color: white;
+    /* margin: 10px auto; */
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.formPesanTiket label{
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.formPesanTiket option{
+    color: black;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 100;
 }
 
 .formPesanTiket input::placeholder{
@@ -369,9 +438,40 @@ body{
     font-weight: 100;
 }
 
+.formPesanTiket a{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+}
+
+#gerbongPesan{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    min-width: 155px;
+}
+
+#tempatdudukrow{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    min-width: 155px;
+}
+
+#tempatDudukCol{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.lmao2{
+    background-color: transparent;
+}
+
 .buttonPesanTiket{
-    margin: 10px auto;
-    width: 50%;
+    /* margin: 10px auto; */
+    /* width: 50%; */
 }
 .buttonPesanTiket button{
     font-family: "Montserrat", sans-serif;
@@ -379,7 +479,7 @@ body{
     display: block;
     width: 200px;
     height: 35px;
-    margin: 0px auto;
+    /* margin: 0px auto; */
     cursor: pointer;
     border-radius: 5px;
     background-color: var(--yellowBtn);
