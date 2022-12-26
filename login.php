@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             $_SESSION["role"] = $user_role;
 
-                            // Redirect ke homeAdmin jika admin, home biasa kalo user
+                            // redirect ke homeAdmin jika admin, home biasa kalo user
                             if($_SESSION["role"] === "admin"){
                                 header("location: homeAdmin.php");
                             } else {

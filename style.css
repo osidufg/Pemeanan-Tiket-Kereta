@@ -125,7 +125,7 @@ ol li a:hover{
     display: grid;
     grid-template-areas: 
     "block1 block2 block3"
-    "block4 block4 block4";
+    "block4 block4 block5";
 }
 .block1{
     grid-area: block1;
@@ -147,6 +147,12 @@ ol li a:hover{
 .block4{
     grid-area: block4;
     font-size: 12px;
+    /* border: 2px solid black; */
+}
+
+.block5{
+    grid-area: block5;
+    font-size: 16px;
     /* border: 2px solid black; */
 }
 
@@ -180,6 +186,32 @@ ol li a:hover{
     text-decoration: none;
 }
 
+.buttonPesananSudah a{
+    background-color: var(--yellowBtn);
+    color: var(--blueBg);
+    text-decoration: none;
+    height: auto;
+    padding-bottom: 3px;
+}
+.buttonPesananSudah a:link, .buttonPesananSudah a:visited{
+    background-color: var(--yellowBtn);
+    color: var(--blueBg);
+    text-decoration: none;
+}
+
+.buttonPesananBelum a{
+    background-color: var(--redBtn);
+    color: var(--whiteBtn);
+    text-decoration: none;
+    height: auto;
+    padding-bottom: 3px;
+}
+.buttonPesananBelum a:link, .buttonPesananBelum a:visited{
+    background-color: var(--redBtn);
+    color: var(--whiteBtn);
+    text-decoration: none;
+}
+
 .keretaPesanan{
     font-size: 24px;
 }
@@ -209,6 +241,23 @@ ol li a:hover{
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 60);
     color: whitesmoke;
     text-align: center;
+    padding: 15px 0;
+}
+
+.mulaiPesanTiket{
+    display: flex;
+    max-width: fit-content;
+    justify-content: center;
+    margin: 2% auto;
+    background-color: var(--yellowBtn);
+    color: var(--blueBg);
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 1%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
 }
 
 .searchTiket{
@@ -449,14 +498,14 @@ ol li a:hover{
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 100;
-    min-width: 155px;
+    width: 58%;
 }
 
 #tempatdudukrow{
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 100;
-    min-width: 155px;
+    width: 58%;
 }
 
 #tempatDudukCol{

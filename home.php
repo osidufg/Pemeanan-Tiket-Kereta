@@ -62,12 +62,26 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false){
                   echo "</div>";
                   echo "<div class='block4'>";
                   // echo "<div class='biodataPesanan'>" . $row["nama_pesan"] . ", " . $row["nik_pesan"] . ", " . $row["duduk_pesan"] . ", " . "Kode Pesanan: " . $row["kode_pesan"] . "</div>";
-                  echo "<div class='biodataPesanan'>" . $row["nama_pesan"] . " (" . $row["nik_pesan"] . ") | " . $row["jenis_kereta"] . " - " . $row["gerbong_pesan"] . " ; " . $row["duduk_pesan"] . "</div>";
+                  echo "<div class='biodataPesanan'>" . $row["nama_pesan"] . " (" . $row["nik_pesan"] . ") | " . $row["jenis_kereta"] . " - " . $row["gerbong_pesan"] . " ; " . $row["duduk_pesan"] . " | Kode Pesan: " . $row["kode_pesan"] . "</div>";
                   echo "</div>";
+                  // status bayar color
+                  if ($row['status_bayar'] == "Sudah Bayar") {
+                    echo "<div class='block5' style='color: #FAE69E;'>";
+                    echo $row['status_bayar'];
+                    echo "</div>";
+                  } else {
+                    echo "<div class='block5' style='color: #f66161;'>";
+                    echo $row['status_bayar'];
+                    echo "</div>";
+                  }
                   echo "</div>";
                 }
               } else {
-                echo "<div class='noresult'>" . "Tidak Ada Hasil." . "</div>";
+                echo "<div class='noresult'>" .
+                     "Tidak Ada Hasil." .
+                     "<br>" .
+                     "<a href='pesan.php' class='mulaiPesanTiket'>Mulai Pesan Tiket</a>" .
+                     "</div>";
               }
           }
         ?>

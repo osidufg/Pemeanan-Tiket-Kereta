@@ -12,6 +12,11 @@ $namaPesan_err = $nikPesan_err = $jumlahPenumpang_err = "";
 
 $pesanID = $namaPesan = $nikPesan = $gerbongPesan = $pesanDudukCol = $pesanDudukRow = $dudukPesan = "";
 $jumlahPenumpang = 1;
+function generateRandomString($length) {
+    return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+}
+$randomstring = generateRandomString(8);
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $namaPesan = $_POST["namaPesan"];
     $nikPesan = $_POST["nikPesan"];
@@ -65,7 +70,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         '$gerbongPesan',
         '$dudukPesan',
         '$jumlahPenumpang',
-        UUID(),
+        -- UUID(),
+        '$randomstring',
         now(),
         'aktif');";
     if (empty($namaPesan) === false){
@@ -165,7 +171,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </select>
             </div>
 
-            <div class="lmao">
+            <div class="lmao" style="margin-top: 1%">
             <select name="tempatDudukCol" id="tempatDudukCol">
                 <option hidden selected>Barisan</option>
                 <option value="A">A</option>
@@ -177,7 +183,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <!-- <a> - </a> -->
         <!-- </div> -->
         <!-- <div class="formPesanTiket"> -->
-            <input name="tempatDudukRow" id="tempatDudukRow" type="number" min="1" max="18" placeholder="Tempat Duduk" required/>
+            <!-- <input name="tempatDudukRow" id="tempatDudukRow" type="number" min="1" max="18" placeholder="Tempat Duduk" required/> -->
+            <select name="tempatDudukRow" id="tempatDudukRow">
+                <option hidden selected>Barisan</option>
+                //create option 1 to 18
+                <?php
+                    for($i = 1; $i <= 18; $i++){
+                        echo "<option value='$i'>$i</option>";
+                    }?>
+            </select>
             </div>
         </div>
         <div class="lmao2">

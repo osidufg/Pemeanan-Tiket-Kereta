@@ -32,9 +32,21 @@ if($_SESSION["role"] != "admin"){
         </script>
         <!--end of Navigation bar-->
 
-        <h2>(ADMIN) Daftar Semua Pesanan</h2>
+        <h2>(ADMIN) Konfirmasi Bayar Tiket</h2>
+        <form action="" method="post" class="searchTiket">
+            <input type="text" name="search" class="formInput"placeholder="Kode Pesan" value="<?php echo $search?>">
+            <input type="submit" value="Cari" id="formButton">
+        </form>
         <?php
-          $sql = "SELECT * FROM pesanan_all WHERE status_data = 'aktif' ORDER BY id_pesan DESC";
+         if(isset($_POST["search"])){
+           $search = $_POST["search"];
+         };
+        // <?php
+          $sql = "SELECT * FROM pesanan_all WHERE 
+          status_data='aktif'
+          AND '$search' IN (kode_pesan)
+          ORDER BY id_pesan DESC
+          ";
           if($result = $mysqli->query($sql)){
               if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
@@ -55,15 +67,15 @@ if($_SESSION["role"] != "admin"){
                   echo "</div>";
                   echo "<div class='block3'>";
                   echo "<div class='hargaPesanan'>" . "Rp " . $totalHarga . "</div>";
-                  // if ($row['status_bayar'] == "Sudah Bayar") {
-                  //   echo "<form class='buttonPesananBelum'>
-                  //   <a href='belumBayar.php?pesan=$row[id_pesan]' id='idButtonPesanan' value='Pesan Sekarang'>Tandai Belum Bayar</a>
-                  //   </form>";
-                  // } else {
-                  //   echo "<form class='buttonPesananSudah'>
-                  //   <a href='sudahBayar.php?pesan=$row[id_pesan]' id='idButtonPesanan' value='Pesan Sekarang'>Tandai Sudah Bayar</a>
-                  //   </form>";
-                  // }
+                  if ($row['status_bayar'] == "Sudah Bayar") {
+                    echo "<form class='buttonPesananBelum'>
+                    <a href='belumBayar.php?pesan=$row[id_pesan]' id='idButtonPesanan' value='Pesan Sekarang'>Tandai Belum Bayar</a>
+                    </form>";
+                  } else {
+                    echo "<form class='buttonPesananSudah'>
+                    <a href='sudahBayar.php?pesan=$row[id_pesan]' id='idButtonPesanan' value='Pesan Sekarang'>Tandai Sudah Bayar</a>
+                    </form>";
+                  }
                   // echo "<form class='buttonPesananSudah'>
                   // <a href='sudahBayar.php?tiket=$row[id_tiket]' id='idButtonPesanan' value='Pesan Sekarang'>Tandai Sudah Bayar</a>
                   // </form>";
